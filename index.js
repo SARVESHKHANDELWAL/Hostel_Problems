@@ -49,7 +49,7 @@ app.get('/complaint', (req, res) => {
     res.render('complaintForm');
 });
 
-app.get('/profile',checkAuth,(req, res) => {
+app.get('/profile', checkAuth, (req, res) => {
     console.log(req.userData);
    Complain.find({name:req.query.name},function(err,userdata){
        console.log(userdata);
@@ -60,8 +60,7 @@ app.get('/profile',checkAuth,(req, res) => {
             HostelName:req.userData.HostelName,
             TotalComplain:userdata.length,
         }
-        res.render('profile',{datas});
-   })   
+   })      
 });
 
 app.get('/about', (req, res) => {
